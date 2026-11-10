@@ -2758,7 +2758,6 @@ var selfcheck = (function () {
    bars) and one multiplier item; then Back to Paul. Every number here was checked with sympy (SPEC.md, Checks). */
 
 var PAUL_LA = 'https://tutorial.math.lamar.edu/Classes/CalcI/LinearApproximations.aspx';
-var PAUL_LA_PP = 'https://tutorial.math.lamar.edu/Problems/CalcI/LinearApproximations.aspx';
 var PAUL_DIFF = 'https://tutorial.math.lamar.edu/Classes/CalcI/Differentials.aspx';
 var DESMOS = 'https://www.desmos.com/scientific';
 
@@ -2952,8 +2951,8 @@ reg('ce-L', { ask: 'L(x) =', ans: '1 + x',
     ['1 - x', 'The slope of `e^x` at 0 is `e^0 = 1`, which is positive.', LA_FIX_BUILD]],
   hints: ['With `f(x) = e^x`, both `f(0)` and `f′(0)` equal `e^0 = 1`. Put them into `L(x) = f(0) + f′(0)(x − 0)`.'], teach: LA_FIX_BUILD }, 'che');
 reg('ce-est', { ask: 'e^0.1 ≈ L(0.1) =', num: true, ans: '1.1', tol: 0.0005,
-  okNote: 'The true value is 1.10517, so the estimate is off by about 0.005. This is Paul’s Practice Problem 5.',
-  wrongs: [[['1.105', '1.10517', '1.105171'], 'That is the calculator value. Paul’s Practice Problem 5 asks for an estimate without one: put `x = 0.1` into `L(x) = 1 + x`.', LA_FIX_BUILD],
+  okNote: 'The true value is 1.10517, so the estimate is off by about 0.005.',
+  wrongs: [[['1.105', '1.10517', '1.105171'], 'That is the calculator value. This question asks for an estimate without one: put `x = 0.1` into `L(x) = 1 + x`.', LA_FIX_BUILD],
     ['0.1', 'Add `f(0) = 1`: `L(0.1) = 1 + 0.1`.', LA_FIX_BUILD],
     ['1', 'That is `f(0)`. The estimate also adds the change along the tangent line, `1 · 0.1`.', LA_FIX_BUILD],
     ['0.9', 'The slope is positive, so the estimate is above 1.', LA_FIX_BUILD]],
@@ -3027,7 +3026,7 @@ function multHTML() {
 
 /* ---------------- page ---------------- */
 function page() {
-  return header('Linear Approximation', [['#sec-tangent', 'Tangent Line'], ['#sec-build', 'Example 1'], ['#sec-choose', 'Choosing a'], ['#sec-mult', 'Multiplier'], ['#close', 'Back to Paul']]) +
+  return header('Linear Approximation', [['#sec-tangent', 'Tangent Line'], ['#sec-build', 'Example 1'], ['#sec-choose', 'Choosing a'], ['#sec-mult', 'Multiplier'], ['#close', 'Back to Unit 6']]) +
     '<main id="top">' + hero({ kicker: 'Calculus I · Unit 6', title: 'Linear Approximation',
       dek: 'Open this after Examples 1 and 2 of Paul’s [Linear Approximations](' + PAUL_LA + '). Move a tangent line along a curve, build the linear approximation to `∛x` at 8, choose base points for three estimates, and see why `Δy ≈ f′(a) Δx`, the idea behind Example 2 of Paul’s [Differentials](' + PAUL_DIFF + ').' }) +
     sec('sec-tangent', '1', 'Estimating with the Tangent Line', '') +
@@ -3049,8 +3048,8 @@ function page() {
       'The figure uses the function from Example 2 of Paul’s Differentials, `y = f(x) = cos(x^2 + 1) − x` at `x = 2`, where `f′(2) ≈ 2.8357`. Shrink `Δx` and watch the two bars approach the same length. At `Δx = 0.03`, Paul’s example gets `Δy ≈ 0.0836` and `dd{y} ≈ 0.0851`.']) +
     col(slider('la-dx', { label: 'The step `Δx`', values: LA_DX, value: 0.5, fmt: function (v) { return 'Δx = ' + fmtNum(v, 3, true); }, redraw: ['fig-dy', 'dybars'] }) +
       graph('fig-dy', dyGraph) + blk('dybars', dyBarsHTML) + blk('mult', multHTML)) +
-    sec('close', '', 'Back to Paul', '') +
-    prose('', ['Continue with Paul’s [Linear Approximations Practice Problems](' + PAUL_LA_PP + ') 1 to 5, then read Example 2 of [Differentials](' + PAUL_DIFF + ').']) +
+    sec('close', '', 'Back to Unit 6', '') +
+    prose('', ['Return to the end of section 8 of Unit 6: The Chain Rule and Implicit Differentiation.']) +
     '</main>';
 }
 expose({ laNumbers: laNumbers, dyNumbers: dyNumbers, laReadout: laReadout, LA_FNS: LA_FNS });
